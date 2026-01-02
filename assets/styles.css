@@ -1,0 +1,400 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    /* Purple background for the whole site - slightly darker gradient for stronger contrast */
+    background: linear-gradient(135deg, #4C1D95 0%, #5B21B6 100%);
+    color: #ffffff;
+    height: auto;
+    min-height: 100vh;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Ensure common elements inherit white text unless specifically overridden */
+header, footer, main, section, nav, .container {
+    color: inherit;
+}
+
+/* Clickable image grid styles */
+.image-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap:1rem;
+    align-items:start;
+}
+.image-card{
+    display:block;
+    background: #ffffff;
+    border-radius:8px;
+    overflow:hidden;
+    text-decoration:none;
+    color:#0b1221; /* dark text */
+    box-shadow: 0 6px 18px rgba(11,15,33,0.06);
+    transition: transform .18s ease, box-shadow .18s ease, box-shadow .18s ease;
+}
+.image-card:focus,
+.image-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(11,15,33,0.12);
+    outline: 3px solid rgba(79,70,229,0.14);
+}
+.image-inner{
+    width:100%;
+    padding-top:66%; /* 3:2 aspect */
+    background-size:cover;
+    background-position:center;
+}
+.image-caption{
+    display:block;
+    padding:0.75rem 0.9rem;
+    font-size:0.95rem;
+    color: #0b1221;
+}
+
+/* Generic clickable card used across the site */
+.clickable-card{
+    display:block;
+    text-decoration:none;
+    color:#0b1221;
+    background: #ffffff;
+    border-radius:10px;
+    padding:1rem;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .12s ease;
+    box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+}
+.clickable-card:hover,
+.clickable-card:focus{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(2,6,23,0.12);
+    background-color: #ffffff;
+}
+
+/* Slightly different visual for nav links to look like boxes */
+.sidebar a{
+    display:block;
+    padding:0.45rem 0.6rem;
+    border-radius:6px;
+    text-decoration:none;
+    color:inherit;
+}
+.sidebar a:hover,
+.sidebar a:focus{
+    background: rgba(255,255,255,0.06);
+}
+
+/* If placeholders are missing, show a subtle neutral background */
+.image-inner[style="background-image:url('assets/placeholder1.jpg')"],
+.image-inner[style="background-image:url('assets/placeholder2.jpg')"],
+.image-inner[style="background-image:url('assets/placeholder3.jpg')"]{
+    background-color: rgba(255,255,255,0.06);
+}
+/* Container styling */
+.container {
+    font-family: 'Roboto';
+    max-width: 65vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    font-family: 'Montserrat';
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top: 2em;
+}
+
+/* Ensure main page titles inside the white container are left-aligned */
+.container .title{ text-align: left; }
+
+/* Align small header paragraphs (e.g. "Week 3") to the left when they sit next to the title */
+.container header p{ text-align: left; color: rgba(0,0,0,0.72); }
+
+/* Specifically align the third week card (Week 3) to the left so it lines up with the title.
+   This targets the third .week-card in the .weeks-grid. */
+.weeks-grid a.week-card:nth-child(3) .week-number,
+.weeks-grid a.week-card:nth-child(3) .week-label{
+    text-align: left;
+}
+
+
+/* Global typography and layout refinements */
+html, body {
+        box-sizing: border-box;
+        font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        font-size: 16px;
+        line-height: 1.5;
+}
+*, *:before, *:after { box-sizing: inherit; }
+
+h1,h2,h3,h4,h5{ font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin-top:0; }
+h1{ font-size: clamp(1.6rem, 2.6vw, 2.4rem); }
+h2{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
+
+/* Improve readability on colored background */
+p, li, a, span { color: rgba(255,255,255,0.95); }
+
+/* Header */
+header{ background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+header .max-w-6xl{ align-items:center; }
+
+/* Make main content area more card-like */
+main article, main section{ background: rgba(255,255,255,0.03); }
+
+/* Buttons */
+.btn-primary, a.btn-primary{ background:#FFFFFF; color:#2a2585; padding:0.6rem 0.9rem; border-radius:8px; text-decoration:none; display:inline-block; font-weight:600; }
+.btn-primary:hover{ background:#f3f4f6; }
+.btn-ghost, a.btn-ghost{ background:transparent; border:1px solid rgba(255,255,255,0.12); color:inherit; padding:0.5rem 0.8rem; border-radius:8px; }
+
+/* Sidebar styling */
+.sidebar{ padding:1rem; }
+.sidebar h4{ margin:0 0 0.5rem 0; color:rgba(255,255,255,0.95); }
+.sidebar ul{ margin:0; padding:0; list-style:none; }
+.sidebar a{ color:rgba(255,255,255,0.9); }
+
+/* Footer */
+footer{ background: rgba(255,255,255,0.03); }
+footer span{ color: rgba(255,255,255,0.85); }
+
+/* Responsive tweaks for small screens */
+@media (max-width: 768px){
+    .image-grid{ grid-template-columns: repeat(2,1fr); }
+    .max-w-6xl{ padding-left:1rem; padding-right:1rem; }
+}
+
+@media (max-width:420px){
+    .image-grid{ grid-template-columns: 1fr; }
+}
+
+/* Utility: center container used in pages */
+.site-inner{ max-width:1200px; margin:0 auto; padding:0 1rem; }
+
+/* Page-specific left alignment wrapper */
+.left-layout{ margin-left:2.5rem; margin-right:auto; }
+.left-layout .max-w-3xl{ margin-left:0; }
+
+/* White description box used to highlight paragraphs */
+.descr-box{
+    background:#ffffff;
+    color:#0b1221;
+    padding:1.1rem 1.4rem;
+    border-radius:10px;
+    box-shadow: 0 10px 36px rgba(11,15,33,0.07);
+    display:block;
+    max-width:74ch;
+    margin-left:auto;
+    margin-right:auto;
+}
+.descr-box p{ margin:0; color:inherit; }
+
+/* Generic info/inline text blocks used across pages (tussentekst) */
+.info-box{
+    background: #ffffff;
+    color: #0b1221;
+    padding: 1.05rem 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(11,15,33,0.07);
+    max-width: 74ch;
+    margin: 0 0 1rem 0;
+}
+.info-box p{ margin:0; color:inherit; }
+
+/* When an info-box sits inside a `.container` or other white panel, add a subtle border so it remains visible */
+.container .info-box{
+    border: 1px solid rgba(11,15,33,0.04);
+}
+
+/* Smaller spacing on very small screens */
+@media (max-width:640px){
+    .info-box{ padding:0.8rem 0.9rem; max-width: calc(100% - 2rem); }
+}
+
+/* Smaller subtitle used under the main title */
+.subtitle{ display:block; font-size:0.55em; line-height:1; margin-top:0.18rem; opacity:0.95; }
+
+@media (max-width: 640px){
+    .descr-box{ padding:0.7rem 0.9rem; max-width: calc(100% - 2rem); }
+    .subtitle{ font-size:0.72em; }
+}
+
+/* Hero spacing: make the section taller and push the white box a bit lower for better visual balance */
+.hero{ min-height:76vh; display:block; }
+.hero .relative{ padding-top:6.5rem; padding-bottom:4.5rem; }
+
+@media (max-width: 768px){
+    .hero{ min-height:64vh; }
+    .hero .relative{ padding-top:4.5rem; padding-bottom:3rem; }
+}
+
+@media (max-width: 420px){
+    .hero{ min-height:58vh; }
+    .hero .relative{ padding-top:3rem; padding-bottom:2rem; }
+    .descr-box{ padding:0.9rem 1rem; max-width: calc(100% - 2rem); }
+}
+
+
+/* Make existing .sketches-gallery elements render as responsive card grids site-wide */
+.sketches-gallery{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:1rem;
+    align-items:start;
+}
+.sketch-frame{
+    display:block;
+    background: #ffffff;
+    padding:0.65rem;
+    border-radius:8px;
+    box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+    transition: transform .18s ease, box-shadow .18s ease;
+    cursor: pointer;
+}
+.sketch-frame:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.12); }
+.sketch-frame img{ width:100%; height:auto; display:block; border-radius:6px; }
+.sketch-label{ text-align:center; margin-top:0.5rem; color: #0b1221; }
+
+/* Week overview cards */
+.weeks-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:1rem; margin-top:1rem; }
+.week-card{ display:block; padding:1rem; border-radius:10px; text-decoration:none; color:#0b1221; background: #ffffff; box-shadow: 0 8px 20px rgba(2,6,23,0.06); transition: transform .16s ease; }
+.week-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.12); }
+.week-number{ font-weight:700; color: #0b1221; }
+.week-label{ color: #3b3f46; }
+
+
+/* Fixed bottom "back to werken" button */
+.bottom-cta{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:22px;
+    z-index:1000;
+    pointer-events:auto;
+}
+.weeks-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background: linear-gradient(90deg, #7C3AED 0%, #4F46E5 100%);
+    color:#ffffff;
+    padding:0.65rem 1rem;
+    border-radius:999px;
+    box-shadow: 0 10px 30px rgba(79,70,229,0.18);
+    text-decoration:none;
+    font-weight:600;
+    transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+}
+.weeks-btn:hover,
+.weeks-btn:focus{
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(79,70,229,0.22);
+    outline: none;
+}
+.weeks-btn:active{ transform: translateY(-1px); opacity:0.95; }
+.weeks-btn:focus-visible{ outline: 3px solid rgba(99,102,241,0.14); outline-offset:3px; }
+
+@media (max-width: 420px){
+    .bottom-cta{ bottom:14px; }
+    .weeks-btn{ padding:0.55rem 0.8rem; font-size:0.95rem; }
+}
+
+
+
+/* Page text panel and magazine layout styles (homepage) */
+.text-panel{
+    background:#ffffff;
+    color:#0b1221;
+    padding:1.4rem 1.6rem;
+    border-radius:12px;
+    box-shadow: 0 18px 40px rgba(11,15,33,0.08);
+    max-width:78ch;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:2.2rem; /* push the white text panel a bit lower in the column */
+}
+.text-panel h1{ color: #0b1221; margin:0 0 0.4rem 0; }
+.text-panel .subtitle{ color:#374151; opacity:0.9; font-size:0.65em; display:block; }
+.text-panel .descr-box{ background:transparent; padding:0; box-shadow:none; max-width:none; }
+.text-panel .descr-box p{ color: #0b1221; margin:0; }
+.text-panel .btn-primary{ background:#4F46E5; color:#fff; }
+.text-panel .btn-ghost{ background:transparent; color:#374151; border:1px solid #e6e6e9; }
+
+/* Title above the white panel (on purple background) */
+.mag-side h1{ margin:0 0 0.8rem 0; color:#ffffff; }
+.mag-side h1 .subtitle{ color: rgba(255,255,255,0.9); font-size:0.85em; display:block; margin-top:0.18rem; }
+.text-panel{ text-align:left; }
+
+.mag-layout{
+    display:grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap:2rem;
+    align-items:start;
+    margin-top:1rem;
+}
+.mag-hero{
+    position:relative;
+    min-height:56vh;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.mag-hero::before{
+    /* subtle dark overlay so white text reads clearly on the photo */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3,7,18,0.6), rgba(3,7,18,0.28));
+    border-radius:12px;
+    pointer-events: none;
+}
+
+/* Optional caption that can sit on top of the hero image (white text) */
+.mag-hero .hero-caption{
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    z-index: 12;
+    color: #ffffff;
+    max-width: 60ch;
+}
+.mag-hero-inner{
+    width:92%;
+    height:68%;
+    border-radius:8px;
+    /* Use the station photo if present; fall back to a darker soft gradient */
+    background-image: url('assets/station.jpg'), linear-gradient(135deg,#eef2ff 0%, #dbeafe 100%);
+    background-size: cover, cover;
+    background-position: center center, center center;
+    box-shadow: 0 32px 64px rgba(2,6,23,0.08) inset;
+    /* ensure inner img fills and is framed */
+    display:flex; align-items:center; justify-content:center;
+}
+.mag-hero-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:8px;
+    box-shadow: 0 28px 64px rgba(2,6,23,0.18);
+    border:12px solid rgba(250,250,250,0.96); /* slightly off-white frame for less harsh contrast */
+}
+
+/* If the img fails to load, fallback to background-image (keeps layout intact) */
+.mag-hero-inner img[hidden]{ display:none; }
+.mag-side{ display:block; }
+.mag-cards{ display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:1rem; }
+.mag-card{ display:inline-block; padding:0.65rem 0.9rem; background:#ffffff; color:#0b1221; border-radius:8px; text-decoration:none; box-shadow: 0 8px 20px rgba(2,6,23,0.06); font-weight:600; }
+.mag-card:hover{ transform: translateY(-4px); box-shadow: 0 18px 40px rgba(2,6,23,0.12); }
+
+@media (max-width: 900px){
+    .mag-layout{ grid-template-columns: 1fr; }
+    .mag-hero{ min-height:36vh; }
+    .mag-hero-inner{ height:54%; }
+    .text-panel{ margin-top:1.2rem; }
+}
+
+
